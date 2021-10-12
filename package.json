@@ -43,13 +43,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint './src/**/*' --max-warnings=0",
+    "lint": "eslint './src/**/*.+(ts|tsx)' --max-warnings=0",
     "lint:fix": "yarn lint --fix",
     "lint-staged": "lint-staged",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*": [
+    "src/*.+(ts|tsx)": [
       "yarn lint:fix"
     ]
   },

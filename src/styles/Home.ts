@@ -5,7 +5,32 @@ export const Container = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   margin: 3rem 10%;
+
+  h1 {
+    font-size: 5rem;
+    font-weight: bold;
+  }
+
+  .previewImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    span {
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-top: 1rem;
+    }
+
+    > img {
+      height: 15rem;
+      margin-top: 1rem;
+    }
+  }
 `
 
 export const Form = styled.form`
