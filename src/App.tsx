@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import { GlobalStyle } from './styles/global'
+import { Container, Form, InputGroup, InputFile, File, Button } from './styles/Home'
+
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <GlobalStyle />
+      <Container>
+        <Form>
+          <InputGroup>
+            <label htmlFor="inpuFile">
+              <InputFile
+                type="file"
+                id="inpuFile"
+              />
+
+              <File>Selecione a imagem</File>
+
+            </label>
+          </InputGroup>
+
+          <Button>Enviar</Button>
+        </Form>
+      </Container>
+    </>
+  )
 }
 
-export default App;
+export default App
