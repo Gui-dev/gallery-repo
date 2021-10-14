@@ -7,14 +7,16 @@ type PhotoItemProps = {
     name: string
     url: string
   }
+  onRemovePhoto: (photoName: string) => void
 }
 
-export const PhotoItem = ({ photo }: PhotoItemProps) => {
+export const PhotoItem = ({ photo, onRemovePhoto }: PhotoItemProps) => {
   return (
     <Container>
       <Content>
         <img src={ photo.url } alt={ photo.name } />
         <h1>{ photo.name }</h1>
+        <button onClick={() => onRemovePhoto(photo.name)}>Remover</button>
       </Content>
     </Container>
   )
