@@ -12,13 +12,14 @@ export const getAll = async () => {
   const imagesFolder = ref(firebaseStorage, 'images')
   const listPhoto = await listAll(imagesFolder)
 
-  listPhoto.items.map(async (photo) => {
-    const photoUrl = await getDownloadURL(photo)
-    return list.push({
-      name: photo.name,
+  for (const i in listPhoto.items) {
+    const photoUrl = await getDownloadURL(listPhoto.items[i])
+
+    list.push({
+      name: listPhoto.items[i].name,
       url: photoUrl
     })
-  })
+  }
 
   return list
 }
