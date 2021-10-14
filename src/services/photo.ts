@@ -1,4 +1,5 @@
-import { ref, listAll, getDownloadURL } from 'firebase/storage'
+import { ref, listAll, getDownloadURL, uploadBytes } from 'firebase/storage'
+import { v4 as uuid } from 'uuid'
 
 import { firebaseStorage } from './firebase'
 
@@ -7,7 +8,7 @@ type PhotoProps = {
   url: string
 }
 
-export const getAll = async () => {
+export const getAllPhotos = async (): Promise<PhotoProps[]> => {
   const list: PhotoProps[] = []
   const imagesFolder = ref(firebaseStorage, 'images')
   const listPhoto = await listAll(imagesFolder)
@@ -22,4 +23,20 @@ export const getAll = async () => {
   }
 
   return list
+}
+
+export const insertPhoto = async (file: File): Promise<PhotoProps> => {
+  if (['image/jpeg', 'image/jpg', 'image/png'].includes(file.type)) {
+    const imageName = uuid()
+    const newFile = ref(firebaseStorage, `images/${imageName}`)
+    const upload = await uploadBytes(newFile, file)
+    const photoUrl = await getDownloadURL(upload.ref)
+
+    return {
+      name: upload.ref.name,
+      url: photoUrl
+    }
+  } else {
+    throw new Error('Tipo de arquivo não permitido')
+  }
 }
