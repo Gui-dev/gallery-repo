@@ -3,7 +3,12 @@ import Lottie from 'react-lottie'
 
 import load from './../../assets/lottie/load.json'
 
-export const Load: React.FC = () => {
+type LoadProps = {
+  height?: number
+  width?: number
+}
+
+export const Load = ({ height = 400, width = 400 }: LoadProps) => {
   return (
     <Lottie
       options={{
@@ -14,8 +19,8 @@ export const Load: React.FC = () => {
           preserveAspectRatio: 'xMidYMid slice'
         }
       }}
-      height={400}
-      width={400}
+      height={height}
+      width={width}
     />
   )
 }
