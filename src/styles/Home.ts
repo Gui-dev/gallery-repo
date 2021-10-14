@@ -99,3 +99,35 @@ export const Button = styled.button`
     background-color: ${darken(0.1, '#218DA6')};
   }
 `
+
+export const Warning = styled.div`
+  margin-top: 6rem;
+
+  span {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+`
+
+export const PhotoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 3rem;
+  padding: 2rem;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+`
