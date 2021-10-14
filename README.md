@@ -34,4 +34,5 @@ yarn start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [App Online](https://gallery-repo.vercel.app) app hosted on vercel.
 
