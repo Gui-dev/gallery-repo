@@ -5,7 +5,7 @@
 <p>Um simples app de galeria de fotos, usando ReactJS e Firebase Storage</p>
 
 ![Home](./screens/home.png)
-![Video](./screens/video.webm)
+<video src='./screens/home.png'/>
 
 ## Technologies used
   - [React](https://pt-br.reactjs.org/)
