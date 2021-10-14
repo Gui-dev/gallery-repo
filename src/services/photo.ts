@@ -1,4 +1,4 @@
-import { ref, listAll, getDownloadURL, uploadBytes } from 'firebase/storage'
+import { deleteObject, getDownloadURL, listAll, ref, uploadBytes } from 'firebase/storage'
 import { v4 as uuid } from 'uuid'
 
 import { firebaseStorage } from './firebase'
@@ -39,4 +39,9 @@ export const insertPhoto = async (file: File): Promise<PhotoProps> => {
   } else {
     throw new Error('Tipo de arquivo não permitido')
   }
+}
+
+export const removePhoto = async (photoName: string) => {
+  const photo = ref(firebaseStorage, `images/${photoName}`)
+  await deleteObject(photo)
 }
